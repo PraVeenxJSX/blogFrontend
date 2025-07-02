@@ -12,17 +12,28 @@ import { DataContext } from '../../context/DataProvider';
 import Comments from './comments/Comments';
 
 const Container = styled(Box)(({ theme }) => ({
-    margin: '50px 100px',
-    [theme.breakpoints.down('md')]: {
-        margin: 0
+    padding: theme.spacing(2, 1),
+    maxWidth: 900,
+    margin: '0 auto',
+    [theme.breakpoints.up('sm')]: {
+        padding: theme.spacing(4, 3),
+    },
+    [theme.breakpoints.up('md')]: {
+        padding: theme.spacing(6, 8),
     },
 }));
 
-const Image = styled('img')({
+const Image = styled('img')(({ theme }) => ({
     width: '100%',
-    height: '50vh',
-    objectFit: 'cover'
-});
+    height: 'auto',
+    maxHeight: '350px',
+    objectFit: 'cover',
+    borderRadius: theme.shape.borderRadius,
+    marginBottom: theme.spacing(3),
+    [theme.breakpoints.up('md')]: {
+        maxHeight: '50vh',
+    },
+}));
 
 const EditIcon = styled(Edit)`
     margin: 5px;
@@ -38,19 +49,27 @@ const DeleteIcon = styled(Delete)`
     border-radius: 10px;
 `;
 
-const Heading = styled(Typography)`
-    font-size: 38px;
-    font-weight: 600;
-    text-align: center;
-    margin: 50px 0 10px 0;
-`;
+const Heading = styled(Typography)(({ theme }) => ({
+    fontSize: '2rem',
+    fontWeight: 700,
+    textAlign: 'center',
+    margin: theme.spacing(3, 0, 2, 0),
+    [theme.breakpoints.up('sm')]: {
+        fontSize: '2.5rem',
+        margin: theme.spacing(5, 0, 2, 0),
+    },
+}));
 
 const Author = styled(Box)(({ theme }) => ({
     color: '#878787',
     display: 'flex',
-    margin: '20px 0',
-    [theme.breakpoints.down('sm')]: {
-        display: 'block'
+    flexDirection: 'column',
+    gap: theme.spacing(1),
+    margin: theme.spacing(2, 0),
+    [theme.breakpoints.up('sm')]: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        margin: theme.spacing(3, 0),
     },
 }));
 

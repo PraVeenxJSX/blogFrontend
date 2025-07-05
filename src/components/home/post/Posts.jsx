@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { Grid, Box, Typography, CircularProgress, Alert } from '@mui/material';
 import { Link, useSearchParams } from 'react-router-dom';
 import API from '../../../service/api';
-import { DataContext } from '../../../context/DataProvider';
+
 
 //components
 import Post from './Post';
